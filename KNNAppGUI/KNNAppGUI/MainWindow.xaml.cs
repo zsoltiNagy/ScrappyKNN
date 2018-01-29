@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LiveCharts;
+using LiveCharts.Wpf;
 
 namespace KNNAppGUI
 {
@@ -23,6 +25,12 @@ namespace KNNAppGUI
         public MainWindow()
         {
             InitializeComponent();
+            SeriesCollection s = new SeriesCollection {
+                new LineSeries { Values = new ChartValues<double> { 3,5,7,4} },
+                new ColumnSeries { Values = new ChartValues<decimal> { 5, 6, 2, 7 } }
+            };
         }
+
+
     }
 }
