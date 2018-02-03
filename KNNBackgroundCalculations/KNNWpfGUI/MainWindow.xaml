@@ -5,32 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KNNWpfGUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <WrapPanel>
-            <ListView Margin="10" Name="irisDataBinding">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <WrapPanel>
-                            <TextBlock Text="Sepal width: " />
-                            <TextBlock Text="{Binding SepalWidth}" FontWeight="Bold" />
-                            <TextBlock Text=", " />
-                            <TextBlock Text="Sepal length: " />
-                            <TextBlock Text="{Binding SepalLength}" FontWeight="Bold" />
-                            <TextBlock Text=", " />
-                            <TextBlock Text="Petal width:" />
-                            <TextBlock Text="{Binding PetalWidth}" />
-                            <TextBlock Text=", " />
-                            <TextBlock Text="Petal width:" />
-                            <TextBlock Text="{Binding PetalWidth}" />
-                            <TextBlock Text=", " />
-                            <TextBlock Text=" (" />
-                            <TextBlock Text="{Binding Species}" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
-                            <TextBlock Text=")" />
-                        </WrapPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+        Title="KNNApp" Height="600" Width="800">
+    <Grid x:Name="Details">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1">
+            <TextBlock FontSize="36" FontFamily="Comic Sans MS"> Iris Dataset</TextBlock>
         </WrapPanel>
+        <WrapPanel Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="5">
+            <TextBlock FontSize="24" FontFamily="Comic Sans MS">Training Data</TextBlock>
+            <DataGrid Name="irisTrainDataBinding"></DataGrid>
+        </WrapPanel>
+        <WrapPanel Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="5">
+            <TextBlock FontSize="24" FontFamily="Comic Sans MS">Testing Data</TextBlock>
+            <DataGrid Name="irisTestDataBinding"></DataGrid>
+        </WrapPanel>
+        
     </Grid>
 </Window>

@@ -28,7 +28,8 @@ namespace KNNWpfGUI
             string path = @"C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\datasets\IRIS.csv";
             DataReader r = new DataReader(path);
             this.DataContext = this;
-            irisDataBinding.ItemsSource = r.Dataset;
+            irisTrainDataBinding.ItemsSource = r.TrainingDataset;
+            irisTestDataBinding.ItemsSource = r.TestingDataset;
         }
     }
 }
