@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KNNAppGUI", "KNNAppGUI\KNNAppGUI.csproj", "{8C709965-4FC3-4768-ADE0-4A4D6CD43B63}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KNNBackgroundCalculations", "KNNBackgroundCalculations\KNNBackgroundCalculations.csproj", "{9D8BCC43-FB49-4983-8713-A33F643B41B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8C709965-4FC3-4768-ADE0-4A4D6CD43B63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C709965-4FC3-4768-ADE0-4A4D6CD43B63}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C709965-4FC3-4768-ADE0-4A4D6CD43B63}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C709965-4FC3-4768-ADE0-4A4D6CD43B63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D8BCC43-FB49-4983-8713-A33F643B41B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D8BCC43-FB49-4983-8713-A33F643B41B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D8BCC43-FB49-4983-8713-A33F643B41B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D8BCC43-FB49-4983-8713-A33F643B41B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {CC9A39FD-D51F-428E-BCCE-19C868C52D86}
+		SolutionGuid = {3B31B309-97A5-4B54-8670-16318AE385A6}
 	EndGlobalSection
 EndGlobal
