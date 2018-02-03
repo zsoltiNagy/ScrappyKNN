@@ -7,6 +7,30 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <WrapPanel>
+            <ListView Margin="10" Name="irisDataBinding">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TextBlock Text="Sepal width: " />
+                            <TextBlock Text="{Binding SepalWidth}" FontWeight="Bold" />
+                            <TextBlock Text=", " />
+                            <TextBlock Text="Sepal length: " />
+                            <TextBlock Text="{Binding SepalLength}" FontWeight="Bold" />
+                            <TextBlock Text=", " />
+                            <TextBlock Text="Petal width:" />
+                            <TextBlock Text="{Binding PetalWidth}" />
+                            <TextBlock Text=", " />
+                            <TextBlock Text="Petal width:" />
+                            <TextBlock Text="{Binding PetalWidth}" />
+                            <TextBlock Text=", " />
+                            <TextBlock Text=" (" />
+                            <TextBlock Text="{Binding Species}" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
+                            <TextBlock Text=")" />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </WrapPanel>
     </Grid>
 </Window>

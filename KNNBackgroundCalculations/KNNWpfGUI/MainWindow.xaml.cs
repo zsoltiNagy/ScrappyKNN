@@ -27,6 +27,8 @@ namespace KNNWpfGUI
             InitializeComponent();
             string path = @"C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\datasets\IRIS.csv";
             DataReader r = new DataReader(path);
+            this.DataContext = this;
+            irisDataBinding.ItemsSource = r.Dataset;
         }
     }
 }

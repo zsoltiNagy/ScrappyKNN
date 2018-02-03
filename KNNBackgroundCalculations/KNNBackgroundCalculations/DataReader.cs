@@ -7,37 +7,56 @@ using System.Threading.Tasks;
 
 namespace KNNBackgroundCalculations
 {
+    public class Flower
+    {
+        //sepal_length,sepal_width,petal_length,petal_width,species
+        public string Species { get; private set; }
+        public double SepalLength { get; private set; }
+        public double SepalWidth { get; private set; }
+        public double PetalLength { get; private set; }
+        public double PetalWidth { get; private set; }
+        public Flower(string[] line)
+        {
+            SepalLength = Double.Parse(line[0]);
+            SepalWidth = Double.Parse(line[1]);
+            PetalLength = Double.Parse(line[2]);
+            PetalWidth = Double.Parse(line[3]);
+            Species = line[4];
+        }
+    }
     public class DataReader
     {
+        public List<Flower> Dataset { get; set; }
+        public List<Flower> TrainingDataset { get; set; }
+        public List<Flower> TestingDataset { get; set; }
         private string filePath;
-        public int NumOfRows { get; set; }
-        public int NumOfCols { get; set; }
-        public Dictionary<int, string> Y_test { get; set; }
-        public Dictionary<int, string> Y_train { get; set; }
-        public Dictionary<int, double[]> X_test { get; set; }
-        public Dictionary<int, double[]> X_train { get; set; }
-        public Dictionary<int, double[]> FeatureValues { get; set; }
-        public Dictionary<int, string> TargetValues { get; set; }
 
         public DataReader(string filePath)
         {
             // there should be a method to validate path
+            Dataset = new List<Flower>();
             this.filePath = filePath;
             Read();
-            SeperateTrainDataAndTestData();
+            CreateTrainingAndTestingData();
         }
 
-        private void SeperateTrainDataAndTestData()
+
+        private void CreateTrainingAndTestingData()
         {
-            // Refactor to use generics
-            var ordered = TargetValues.OrderBy(kv => kv.Key);
-            var half = TargetValues.Count / 2;
-            Y_test = ordered.Take(half).ToDictionary(kv => kv.Key, kv => kv.Value);
-            Y_train = ordered.Skip(half).ToDictionary(kv => kv.Key, kv => kv.Value);
-            var ordered2 = FeatureValues.OrderBy(kv => kv.Key);
-            half = FeatureValues.Count / 2;
-            X_test = ordered2.Take(half).ToDictionary(kv => kv.Key, kv => kv.Value);
-            X_train = ordered2.Skip(half).ToDictionary(kv => kv.Key, kv => kv.Value);
+            TrainingDataset = new List<Flower>();
+            TestingDataset = new List<Flower>();
+            int mid = Dataset.Count()/2;
+            for (int i = 0; i < Dataset.Count(); i++)
+            {
+                if (i < mid)
+                {
+                    TrainingDataset.Add(Dataset[i]);
+                }
+                else
+                {
+                    TestingDataset.Add(Dataset[i]);
+                }
+            }
         }
         
         private void Read()
@@ -50,25 +69,12 @@ namespace KNNBackgroundCalculations
             string[] lines = rawData.Split(new char[] { '\r' },
                 StringSplitOptions.RemoveEmptyEntries);
 
-            // See how many rows and columns there are.
-            NumOfRows = lines.Length;
-            NumOfCols = lines[0].Split(',').Length;
-
-            // Set the dictionaries
-            FeatureValues = new Dictionary<int, double[]>();
-            TargetValues = new Dictionary<int, string>();
-
-            // Fill the dictionaries.
-            for (int r = 1; r < NumOfRows+1; r++)
+            // Load the dataset.
+            for (int r = 1; r < lines.Length+1; r++)
             {
                 string[] line = lines[r-1].Split(',');
-                double[] lineOfFeatures = new double[NumOfCols - 1];
-                for (int c = 0; c < NumOfCols-1; c++)
-                {
-                    lineOfFeatures[c] = Double.Parse(line[c]);
-                }
-                FeatureValues.Add(r, lineOfFeatures);
-                TargetValues.Add(r, line[line.Length - 1]);
+                Flower flower = new Flower(line);
+                Dataset.Add(flower);
             }
         }
     }
