@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace KNNBackgroundCalculations
 {
-    class DataReader
+    public class DataReader
     {
         private string filePath;
         public int NumOfRows { get; set; }
