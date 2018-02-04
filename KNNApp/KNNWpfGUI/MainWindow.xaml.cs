@@ -46,8 +46,13 @@ namespace KNNWpfGUI
             irisTrainDataBinding.ItemsSource = r.TrainingDataset;
             irisTestDataBinding.ItemsSource = r.TestingDataset;
             ScrappyKNN knn = new ScrappyKNN(r);
-            AccuracyLabel.Content = knn.MyAccuracy.ToString();
+            AccuracyLabel.Content = "Accuracy: " + Math.Round(knn.MyAccuracy, 2).ToString() + "%";
         }
 
+        private void IrisInfoButton_Click(object sender, RoutedEventArgs e)
+        {
+            IrisInfo irisInfo = new IrisInfo();
+            irisInfo.Show();
+        }
     }
 }

@@ -20,6 +20,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
+            <RowDefinition Height="50" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
@@ -32,8 +33,12 @@
         <WrapPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1">
             <TextBlock FontSize="36" FontFamily="Comic Sans MS"> Iris Dataset</TextBlock>
         </WrapPanel>
-        <WrapPanel Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="1">
-            <Image Source="irises.png"/>
+        <WrapPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2">
+            <Button Background="Transparent" x:Name="IrisInfoButton" Click="IrisInfoButton_Click" Cursor="Help">
+                <WrapPanel>
+                    <Image Source="irises.png"/>
+                </WrapPanel>
+            </Button>
         </WrapPanel>
         <WrapPanel Grid.Column="6" Grid.Row="1">
             <Label x:Name="AccuracyLabel" Content="{Binding Path=Hello}" FontFamily="Courier New"/>
@@ -48,14 +53,14 @@
                 </Button.Background>
             </Button>
         </WrapPanel>
-        <WrapPanel Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="5">
+        <WrapPanel Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="3" Grid.RowSpan="5">
             <TextBlock FontSize="24" FontFamily="Comic Sans MS">Training Data</TextBlock>
             <DataGrid Name="irisTrainDataBinding"></DataGrid>
         </WrapPanel>
-        <WrapPanel Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="5">
+        <WrapPanel Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="3" Grid.RowSpan="5">
             <TextBlock FontSize="24" FontFamily="Comic Sans MS">Testing Data</TextBlock>
             <DataGrid Name="irisTestDataBinding"></DataGrid>
         </WrapPanel>
-        
+
     </Grid>
 </Window>

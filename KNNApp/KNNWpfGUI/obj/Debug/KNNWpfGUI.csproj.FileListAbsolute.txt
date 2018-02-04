@@ -34,3 +34,7 @@ C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNWpf
 C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNWpfGUI\obj\Debug\KNNWpfGUI.csproj.CoreCompileInputs.cache
 C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNWpfGUI\obj\Debug\KNNWpfGUI.exe
 C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNWpfGUI\obj\Debug\KNNWpfGUI.pdb
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNWpfGUI\obj\Debug\Page1.g.cs
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNWpfGUI\obj\Debug\Page1.baml
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNWpfGUI\obj\Debug\IrisInfo.g.cs
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNWpfGUI\obj\Debug\IrisInfo.baml
