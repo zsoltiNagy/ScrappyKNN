@@ -12,7 +12,7 @@ namespace KNNBackgroundCalculations
         {
             Console.WriteLine("A");
             string path = @"C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\datasets\IRIS.csv";
-            DataReader reader = new DataReader(path);
+            DataSet reader = new DataSet(path);
 
             Console.ReadKey();
         }

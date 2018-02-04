@@ -7,34 +7,17 @@ using System.Threading.Tasks;
 
 namespace KNNBackgroundCalculations
 {
-    public class Flower
+    public class DataSet
     {
-        //sepal_length,sepal_width,petal_length,petal_width,species
-        public string Species { get; private set; }
-        public double SepalLength { get; private set; }
-        public double SepalWidth { get; private set; }
-        public double PetalLength { get; private set; }
-        public double PetalWidth { get; private set; }
-        public Flower(string[] line)
-        {
-            SepalLength = Double.Parse(line[0]);
-            SepalWidth = Double.Parse(line[1]);
-            PetalLength = Double.Parse(line[2]);
-            PetalWidth = Double.Parse(line[3]);
-            Species = line[4];
-        }
-    }
-    public class DataReader
-    {
-        public List<Flower> Dataset { get; set; }
+        public List<Flower> MyDataSet { get; set; }
         public List<Flower> TrainingDataset { get; set; }
         public List<Flower> TestingDataset { get; set; }
         private string filePath;
 
-        public DataReader(string filePath)
+        public DataSet(string filePath)
         {
             // there should be a method to validate path
-            Dataset = new List<Flower>();
+            MyDataSet = new List<Flower>();
             this.filePath = filePath;
             Read();
             CreateTrainingAndTestingData();
@@ -45,16 +28,16 @@ namespace KNNBackgroundCalculations
         {
             TrainingDataset = new List<Flower>();
             TestingDataset = new List<Flower>();
-            int mid = Dataset.Count()/2;
-            for (int i = 0; i < Dataset.Count(); i++)
+            int mid = MyDataSet.Count()/2;
+            for (int i = 0; i < MyDataSet.Count(); i++)
             {
                 if (i < mid)
                 {
-                    TrainingDataset.Add(Dataset[i]);
+                    TrainingDataset.Add(MyDataSet[i]);
                 }
                 else
                 {
-                    TestingDataset.Add(Dataset[i]);
+                    TestingDataset.Add(MyDataSet[i]);
                 }
             }
         }
@@ -74,7 +57,7 @@ namespace KNNBackgroundCalculations
             {
                 string[] line = lines[r-1].Split(',');
                 Flower flower = new Flower(line);
-                Dataset.Add(flower);
+                MyDataSet.Add(flower);
             }
         }
     }

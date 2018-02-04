@@ -5,3 +5,9 @@ C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNBackground
 C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNBackgroundCalculations\KNNBackgroundCalculations\obj\Debug\KNNBackgroundCalculations.exe
 C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNBackgroundCalculations\KNNBackgroundCalculations\obj\Debug\KNNBackgroundCalculations.pdb
 C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNBackgroundCalculations\KNNBackgroundCalculations\obj\Debug\KNNBackgroundCalculations.csprojResolveAssemblyReference.cache
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNBackgroundCalculations\bin\Debug\KNNBackgroundCalculations.exe.config
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNBackgroundCalculations\bin\Debug\KNNBackgroundCalculations.exe
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNBackgroundCalculations\bin\Debug\KNNBackgroundCalculations.pdb
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNBackgroundCalculations\obj\Debug\KNNBackgroundCalculations.csproj.CoreCompileInputs.cache
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNBackgroundCalculations\obj\Debug\KNNBackgroundCalculations.exe
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNBackgroundCalculations\obj\Debug\KNNBackgroundCalculations.pdb
