@@ -14,6 +14,8 @@ namespace KNNBackgroundCalculations
         public double SepalWidth { get; private set; }
         public double PetalLength { get; private set; }
         public double PetalWidth { get; private set; }
+        public double[] Features { get; private set; }
+
         public Flower(string[] line)
         {
             SepalLength = Double.Parse(line[0]);
@@ -21,6 +23,16 @@ namespace KNNBackgroundCalculations
             PetalLength = Double.Parse(line[2]);
             PetalWidth = Double.Parse(line[3]);
             Species = line[4];
+            FillFeatures();
+        }
+
+        private void FillFeatures()
+        {
+            Features = new double[4];
+            Features[0] = SepalLength;
+            Features[1] = SepalWidth;
+            Features[2] = PetalLength;
+            Features[3] = PetalWidth;
         }
     }
 }
