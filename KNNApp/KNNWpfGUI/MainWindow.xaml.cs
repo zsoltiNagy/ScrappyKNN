@@ -22,14 +22,32 @@ namespace KNNWpfGUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string Hello {get; set;}
+
         public MainWindow()
         {
             InitializeComponent();
+            
+            Button btn = new Button();
+            btn.Name = "GetAccuracyButton";
+            btn.Click += GetAccuracyButton_Click;
+        }
+
+        private void GetAccuracyButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoadDataSet();
+        }
+
+        private void LoadDataSet()
+        {
             string path = @"C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\datasets\IRIS.csv";
             DataSet r = new DataSet(path);
             this.DataContext = this;
             irisTrainDataBinding.ItemsSource = r.TrainingDataset;
             irisTestDataBinding.ItemsSource = r.TestingDataset;
+            ScrappyKNN knn = new ScrappyKNN(r);
+            AccuracyLabel.Content = knn.MyAccuracy.ToString();
         }
+
     }
 }

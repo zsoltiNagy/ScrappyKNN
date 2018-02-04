@@ -32,6 +32,22 @@
         <WrapPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1">
             <TextBlock FontSize="36" FontFamily="Comic Sans MS"> Iris Dataset</TextBlock>
         </WrapPanel>
+        <WrapPanel Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="1">
+            <Image Source="irises.png"/>
+        </WrapPanel>
+        <WrapPanel Grid.Column="6" Grid.Row="1">
+            <Label x:Name="AccuracyLabel" Content="{Binding Path=Hello}" FontFamily="Courier New"/>
+        </WrapPanel>
+        <WrapPanel Grid.Column="5" Grid.Row="1">
+            <Button Content="KNN Accuracy" x:Name="GetAccuracyButton" Click="GetAccuracyButton_Click" RenderTransformOrigin="0.5,0.5" FontFamily="Comic Sans MS" Cursor="Hand">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FF97ECD5" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </WrapPanel>
         <WrapPanel Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="5">
             <TextBlock FontSize="24" FontFamily="Comic Sans MS">Training Data</TextBlock>
             <DataGrid Name="irisTrainDataBinding"></DataGrid>
