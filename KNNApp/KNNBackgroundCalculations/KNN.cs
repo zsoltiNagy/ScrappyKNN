@@ -4,17 +4,24 @@ using System.Collections.Generic;
 
 namespace KNNBackgroundCalculations
 {
+    /// <summary>
+    /// Base for all k-nearest neighbors algorithm implementations.
+    /// </summary>
     public abstract class KNN
     {
-        public abstract List<string> Predictions { get; set; }
-        abstract public void Predict();
-        abstract public string Closest(double[] row);        
+        protected abstract List<string> Predictions { get; set; }
+        abstract protected void Predict();
+        abstract protected string Closest(double[] row);        
     }
 
+    /// <summary>
+    /// A very basic k-nearest neighbors algorithm. Needs a DataSet type as parameter to construct.
+    /// </summary>
     public class ScrappyKNN : KNN
     {
-        public DataSet Dataset { get; private set; }
-        public override List<string> Predictions { get; set; }
+
+        private DataSet Dataset { get; }
+        protected override List<string> Predictions { get; set; }
         public double MyAccuracy;
 
         public ScrappyKNN(DataSet dataset)
@@ -24,7 +31,10 @@ namespace KNNBackgroundCalculations
             MyAccuracy = Accuracy();
         }
 
-        public override void Predict()
+        /// <summary>
+        /// Iterates through the TestingDataset, calls the Closest method on every row, then puts the results in the Predictions list.
+        /// </summary>
+        protected override void Predict()
         {
             Predictions = new List<string>();
             double[] row = new double[4];
@@ -36,7 +46,12 @@ namespace KNNBackgroundCalculations
             }
         }
 
-        public override string Closest(double[] testFlower)
+        /// <summary>
+        /// Takes a row of testing data and predicts its class by finding the closest row with the least EucledianDistance result.
+        /// </summary>
+        /// <param name="testFlower">A row of test data.</param>
+        /// <returns>String representing the predicted class.</returns>
+        protected override string Closest(double[] testFlower)
         {
             double[] baseTrainFlower = Dataset.TrainingDataset[0].Features;
 
@@ -61,6 +76,12 @@ namespace KNNBackgroundCalculations
             return Dataset.TrainingDataset[bestIndex].Species;
         }
 
+        /// <summary>
+        /// Calculates the eucledian distance between two rows of data.
+        /// </summary>
+        /// <param name="test">A row of data from the TestingDataset</param>
+        /// <param name="train">A row of data from the TrainingDataset</param>
+        /// <returns></returns>
         private double EucledianDistance(double[] test, double[] train)
         {
             if (train.Length != test.Length)
@@ -77,6 +98,10 @@ namespace KNNBackgroundCalculations
             return Math.Sqrt(distance);
         }
 
+        /// <summary>
+        /// Compares the predicted classes with the actual ones.
+        /// </summary>
+        /// <returns>Give back a double, that is representing the accuracy percent of the current run.</returns>
         public double Accuracy()
         {
             List<string> actual = new List<string>();
