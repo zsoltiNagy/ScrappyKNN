@@ -1,0 +1,16 @@
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNTests\bin\Debug\KNNTests.dll
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNTests\bin\Debug\KNNTests.pdb
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNTests\bin\Debug\KNNBackgroundCalculations.exe
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNTests\bin\Debug\KNNBackgroundCalculations.pdb
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNTests\bin\Debug\KNNBackgroundCalculations.exe.config
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNTests\obj\Debug\KNNBackgroundCalculationsTests.csprojResolveAssemblyReference.cache
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNTests\obj\Debug\KNNBackgroundCalculationsTests.csproj.CoreCompileInputs.cache
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNTests\obj\Debug\KNNTests.dll
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNTests\obj\Debug\KNNTests.pdb

@@ -1,0 +1,17 @@
+-> I will use WPF, it has the right tools in its toolkit for the basic version of the app.
+-> I found a simple algorithm for calculating euclidian distance in C#, very basic example for calculating the distance between to points, 
+should be extended:
+
+int x0 = 1;
+int y0 = 1;
+
+int x1 = 100;
+int y1 = 100;
+
+int dX = x1 - x0;
+int dY = y1 - y0;
+
+double distance = Math.Sqrt(dX * dX + dY * dY);
+
+-> I will read the previously found and downloaded dataset, for reading it I will implement a method using the StreamReader class
+-> I will use a previously implemented python KNN (ScrappyKNN)
