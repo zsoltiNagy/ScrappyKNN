@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KNNBackgroundCalculations
 {
@@ -19,15 +17,18 @@ namespace KNNBackgroundCalculations
 
         public DataSet(string filePath)
         {
-            // there should be a method to validate path
+            // There should be a method to validate the path
+            // There should be a method to validate the file for DataSet transformation
             MyDataSet = new List<Flower>();
             this.filePath = filePath;
             Read();
             CreateTrainingAndTestingData();
         }
 
+        /// <summary>
+        /// Shuffles the content of a List.
+        /// </summary>
         private static Random rng = new Random();
-
         public static void Shuffle<T>(List<T> list)
         {
             int n = list.Count;
@@ -41,11 +42,16 @@ namespace KNNBackgroundCalculations
             }
         }
 
+        /// <summary>
+        /// Creates TrainingDataSet and TestingDataSet from MyDataSet.
+        /// </summary>
         private void CreateTrainingAndTestingData()
         {
             TrainingDataset = new List<Flower>();
             TestingDataset = new List<Flower>();
+            // Shuffling the DataSet for more heterogenous training and testing data
             Shuffle(MyDataSet);
+            // Splitting the shuffled DataSet by odd and even numbers to add more flavour
             int mid = MyDataSet.Count()/2;
             for (int i = 0; i < MyDataSet.Count(); i++)
             {
@@ -60,6 +66,9 @@ namespace KNNBackgroundCalculations
             }
         }
         
+        /// <summary>
+        /// Creates MyDataSet from the file targeted by the filePath.
+        /// </summary>
         private void Read()
         {
             // Get the file's text.

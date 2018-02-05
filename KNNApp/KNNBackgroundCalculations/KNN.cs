@@ -31,6 +31,9 @@ namespace KNNBackgroundCalculations
             MyAccuracy = Accuracy();
         }
 
+        /// <summary>
+        /// Iterates through the TestingDataset, calls the Closest method on every row, then puts the results in the Predictions list.
+        /// </summary>
         protected override void Predict()
         {
             Predictions = new List<string>();
@@ -43,6 +46,11 @@ namespace KNNBackgroundCalculations
             }
         }
 
+        /// <summary>
+        /// Takes a row of testing data and predicts its class by finding the closest row with the least EucledianDistance result.
+        /// </summary>
+        /// <param name="testFlower">A row of test data.</param>
+        /// <returns>String representing the predicted class.</returns>
         protected override string Closest(double[] testFlower)
         {
             double[] baseTrainFlower = Dataset.TrainingDataset[0].Features;
@@ -68,6 +76,12 @@ namespace KNNBackgroundCalculations
             return Dataset.TrainingDataset[bestIndex].Species;
         }
 
+        /// <summary>
+        /// Calculates the eucledian distance between two rows of data.
+        /// </summary>
+        /// <param name="test">A row of data from the TestingDataset</param>
+        /// <param name="train">A row of data from the TrainingDataset</param>
+        /// <returns></returns>
         private double EucledianDistance(double[] test, double[] train)
         {
             if (train.Length != test.Length)
@@ -84,6 +98,10 @@ namespace KNNBackgroundCalculations
             return Math.Sqrt(distance);
         }
 
+        /// <summary>
+        /// Compares the predicted classes with the actual ones.
+        /// </summary>
+        /// <returns>Give back a double, that is representing the accuracy percent of the current run.</returns>
         public double Accuracy()
         {
             List<string> actual = new List<string>();
