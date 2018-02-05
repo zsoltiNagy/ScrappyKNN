@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace KNNBackgroundCalculations
 {
+    /// <summary>
+    /// Simple class to contain lines of data from the Iris dataset.
+    /// </summary>
     public class Flower
     {
         //sepal_length,sepal_width,petal_length,petal_width,species

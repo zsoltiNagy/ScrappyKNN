@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace KNNBackgroundCalculations
 {
+    /// <summary>
+    /// Takes a path to a .csv file as a parameter and makes a dataset from it, shuffles it and creates training data and testing data.
+    /// </summary>
     public class DataSet
     {
         public List<Flower> MyDataSet { get; set; }

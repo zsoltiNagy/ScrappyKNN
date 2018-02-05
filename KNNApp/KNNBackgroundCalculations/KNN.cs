@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace KNNBackgroundCalculations
 {
+    /// <summary>
+    /// Base abstract class for all k-nearest neighbors algorithm implementations.
+    /// </summary>
     public abstract class KNN
     {
         public abstract List<string> Predictions { get; set; }
@@ -11,8 +14,12 @@ namespace KNNBackgroundCalculations
         abstract public string Closest(double[] row);        
     }
 
+    /// <summary>
+    /// A very basic k-nearest neighbors algorithm. Needs a DataSet type as parameter to construct.
+    /// </summary>
     public class ScrappyKNN : KNN
     {
+
         public DataSet Dataset { get; private set; }
         public override List<string> Predictions { get; set; }
         public double MyAccuracy;
