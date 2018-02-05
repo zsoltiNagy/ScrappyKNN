@@ -5,13 +5,13 @@ using System.Collections.Generic;
 namespace KNNBackgroundCalculations
 {
     /// <summary>
-    /// Base abstract class for all k-nearest neighbors algorithm implementations.
+    /// Base for all k-nearest neighbors algorithm implementations.
     /// </summary>
     public abstract class KNN
     {
-        public abstract List<string> Predictions { get; set; }
-        abstract public void Predict();
-        abstract public string Closest(double[] row);        
+        protected abstract List<string> Predictions { get; set; }
+        abstract protected void Predict();
+        abstract protected string Closest(double[] row);        
     }
 
     /// <summary>
@@ -20,8 +20,8 @@ namespace KNNBackgroundCalculations
     public class ScrappyKNN : KNN
     {
 
-        public DataSet Dataset { get; private set; }
-        public override List<string> Predictions { get; set; }
+        private DataSet Dataset { get; }
+        protected override List<string> Predictions { get; set; }
         public double MyAccuracy;
 
         public ScrappyKNN(DataSet dataset)
@@ -31,7 +31,7 @@ namespace KNNBackgroundCalculations
             MyAccuracy = Accuracy();
         }
 
-        public override void Predict()
+        protected override void Predict()
         {
             Predictions = new List<string>();
             double[] row = new double[4];
@@ -43,7 +43,7 @@ namespace KNNBackgroundCalculations
             }
         }
 
-        public override string Closest(double[] testFlower)
+        protected override string Closest(double[] testFlower)
         {
             double[] baseTrainFlower = Dataset.TrainingDataset[0].Features;
 

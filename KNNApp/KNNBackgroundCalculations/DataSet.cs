@@ -12,9 +12,9 @@ namespace KNNBackgroundCalculations
     /// </summary>
     public class DataSet
     {
-        public List<Flower> MyDataSet { get; set; }
-        public List<Flower> TrainingDataset { get; set; }
-        public List<Flower> TestingDataset { get; set; }
+        public List<Flower> MyDataSet { get; private set; }
+        public List<Flower> TrainingDataset { get; private set; }
+        public List<Flower> TestingDataset { get; private set; }
         private string filePath;
 
         public DataSet(string filePath)
