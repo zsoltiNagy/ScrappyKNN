@@ -49,8 +49,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="adult.csv" />
     <None Include="App.config" />
+    <None Include="Hepatitis.csv" />
     <None Include="IRIS.csv" />
+    <None Include="SEEDS.csv" />
+    <None Include="Wine.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="adult.names.txt" />
+    <Content Include="Hepatitis.names.txt" />
+    <Content Include="SEEDS_desc.txt" />
+    <Content Include="Wine.names.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
