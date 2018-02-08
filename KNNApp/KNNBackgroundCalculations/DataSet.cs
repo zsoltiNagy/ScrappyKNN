@@ -5,6 +5,7 @@ using System.Linq;
 
 namespace KNNBackgroundCalculations
 {
+    
     /// <summary>
     /// Takes a path to a .csv file as a parameter and makes a dataset from it, shuffles it and creates training data and testing data.
     /// </summary>
@@ -17,8 +18,6 @@ namespace KNNBackgroundCalculations
 
         public DataSet(string filePath)
         {
-            // There should be a method to validate the path
-            // There should be a method to validate the file for DataSet transformation
             MyDataSet = new List<Flower>();
             this.filePath = filePath;
             Read();
@@ -65,7 +64,7 @@ namespace KNNBackgroundCalculations
                 }
             }
         }
-        
+
         /// <summary>
         /// Creates MyDataSet from the file targeted by the filePath.
         /// </summary>
