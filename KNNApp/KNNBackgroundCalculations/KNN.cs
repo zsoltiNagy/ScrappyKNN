@@ -73,7 +73,7 @@ namespace KNNBackgroundCalculations
                     bestIndex = i;
                 }                
             }
-            return Dataset.TrainingDataset[bestIndex].Species;
+            return Dataset.TrainingDataset[bestIndex].Class;
         }
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace KNNBackgroundCalculations
             List<string> actual = new List<string>();
             foreach (var flower in Dataset.TestingDataset)
             {
-                actual.Add(flower.Species);
+                actual.Add(flower.Class);
             }
 
             double accuracy = 0;

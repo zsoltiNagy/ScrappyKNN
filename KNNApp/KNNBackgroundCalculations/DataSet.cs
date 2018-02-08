@@ -11,14 +11,16 @@ namespace KNNBackgroundCalculations
     /// </summary>
     public class DataSet
     {
-        public List<Flower> MyDataSet { get; private set; }
-        public List<Flower> TrainingDataset { get; private set; }
-        public List<Flower> TestingDataset { get; private set; }
+        public List<Row> MyDataSet { get; private set; }
+        public List<Row> TrainingDataset { get; private set; }
+        public List<Row> TestingDataset { get; private set; }
+        private int classPosition;
         private string filePath;
 
-        public DataSet(string filePath)
+        public DataSet(string filePath, int classPosition)
         {
-            MyDataSet = new List<Flower>();
+            this.classPosition = classPosition;
+            MyDataSet = new List<Row>();
             this.filePath = filePath;
             Read();
             CreateTrainingAndTestingData();
@@ -46,8 +48,8 @@ namespace KNNBackgroundCalculations
         /// </summary>
         private void CreateTrainingAndTestingData()
         {
-            TrainingDataset = new List<Flower>();
-            TestingDataset = new List<Flower>();
+            TrainingDataset = new List<Row>();
+            TestingDataset = new List<Row>();
             // Shuffling the DataSet for more heterogenous training and testing data
             Shuffle(MyDataSet);
             // Splitting the shuffled DataSet by odd and even numbers to add more flavour
@@ -75,6 +77,7 @@ namespace KNNBackgroundCalculations
 
             // Split into lines.
             rawData = rawData.Replace('\n', '\r');
+            rawData = rawData.Replace('\t', ',');
             string[] lines = rawData.Split(new char[] { '\r' },
                 StringSplitOptions.RemoveEmptyEntries);
 
@@ -82,8 +85,9 @@ namespace KNNBackgroundCalculations
             for (int r = 1; r < lines.Length+1; r++)
             {
                 string[] line = lines[r-1].Split(',');
-                Flower flower = new Flower(line);
-                MyDataSet.Add(flower);
+                Row row = new Row(line, classPosition);
+                //Flower flower = new Flower(line);
+                MyDataSet.Add(row);
             }
         }
     }
