@@ -74,7 +74,8 @@ namespace KNNBackgroundCalculations
                     bestIndex = i;
                 }
             }
-            return (string)DataSet.TrainingTable.Rows[bestIndex].ItemArray[DataSet.classPosition];
+            var x = DataSet.TrainingTable.Rows[bestIndex].ItemArray[DataSet.classPosition];
+            return x.ToString();
         }
 
         private double EucledianDistance(double[] test, double[] train)
@@ -98,7 +99,8 @@ namespace KNNBackgroundCalculations
             List<string> actual = new List<string>();
             foreach (DataRow dataRow in DataSet.TestingTable.Rows)
             {
-                actual.Add((string)dataRow.ItemArray[DataSet.classPosition]);
+                var x = dataRow.ItemArray[DataSet.classPosition];
+                actual.Add(x.ToString());
             }
 
             double accuracy = 0;

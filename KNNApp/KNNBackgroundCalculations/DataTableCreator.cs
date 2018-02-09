@@ -25,7 +25,22 @@ namespace KNNBackgroundCalculations
             rawData = rawData.Replace('\t', ',');
             string[] lines = rawData.Split(new char[] { '\r' },
                 StringSplitOptions.RemoveEmptyEntries);
+            lines = Shuffle(lines);
             Create(lines);
+        }
+
+        private string[] Shuffle(string[] texts)
+        {
+            // Knuth shuffle algorithm :: courtesy of Wikipedia :)
+            for (int t = 0; t < texts.Length; t++)
+            {
+                Random ra = new Random(); 
+                string tmp = texts[t];
+                int r = ra.Next(t, texts.Length);
+                texts[t] = texts[r];
+                texts[r] = tmp;
+            }
+            return texts;
         }
 
         private Type[] GetDataTypes(string row)
