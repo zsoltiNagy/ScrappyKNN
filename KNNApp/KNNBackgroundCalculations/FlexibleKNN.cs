@@ -25,8 +25,8 @@ namespace KNNBackgroundCalculations
 
         private double[] GetRowDoubleArray(DataRow dataRow)
         {
-            double[] row = new double[DataSet.classPosition];
             int rowLength = DataSet.TestingTable.Rows[0].ItemArray.Length;
+            double[] row = new double[rowLength-1];
             for (int cell = 0; cell < rowLength; cell++)
             {
                 if (cell > DataSet.classPosition)
