@@ -17,6 +17,8 @@ namespace KNNBackgroundCalculations
         public List<Row> TrainingDataset { get; private set; }
         public List<Row> TestingDataset { get; private set; }
         public DataTable MyDataTable { get; private set; }
+        public DataTable TrainingTable { get; private set; }
+        public DataTable TestingTable { get; private set; }
         private int classPosition;
         private string filePath;
 
@@ -85,8 +87,10 @@ namespace KNNBackgroundCalculations
                 StringSplitOptions.RemoveEmptyEntries);
 
 
-            //DataTableCreator creator = new DataTableCreator(lines);
-            //MyDataTable = creator.MyDataTable;
+            DataTableCreator creator = new DataTableCreator(filePath);
+            MyDataTable = creator.MyDataTable;
+            TrainingTable = creator.TrainingSet;
+            TestingTable = creator.TestingSet;
 
             // Load the dataset.
             for (int r = 1; r < lines.Length+1; r++)

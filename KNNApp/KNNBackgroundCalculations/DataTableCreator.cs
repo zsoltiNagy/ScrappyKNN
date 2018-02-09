@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 
 namespace KNNBackgroundCalculations
 {
-    
+
     public class DataTableCreator
     {
         public DataTable MyDataTable { get; private set; }
+        public DataTable TestingSet { get; private set; }
+        public DataTable TrainingSet {get; private set;}
 
         public DataTableCreator(string filePath)//string[] lines)
         {
@@ -21,7 +23,7 @@ namespace KNNBackgroundCalculations
             rawData = rawData.Replace('\t', ',');
             string[] lines = rawData.Split(new char[] { '\r' },
                 StringSplitOptions.RemoveEmptyEntries);
-            MyDataTable = Create(lines);
+            Create(lines);
         }
 
         private Type[] GetDataTypes(string row)
@@ -43,23 +45,29 @@ namespace KNNBackgroundCalculations
             return types;
         }
 
-        private DataTable Create(string[] lines)
+        private void Create(string[] lines)
         {
-            DataTable table = new DataTable();
+            MyDataTable = new DataTable();
+            TrainingSet = new DataTable();
+            TestingSet = new DataTable();
+
             Type[] types = GetDataTypes(lines[0]);
 
-            int x = lines[0].Split(',').Length;
+            int lineLength = lines[0].Split(',').Length;
+            int numberOfRows = lines.Length;
 
-            for (int i = 0; i<x; i++)
+            for (int i = 0; i< lineLength; i++)
             {
-                table.Columns.Add(i.ToString(), types[i]);
+                MyDataTable.Columns.Add(i.ToString(), types[i]);
+                TrainingSet.Columns.Add(i.ToString(), types[i]);
+                TestingSet.Columns.Add(i.ToString(), types[i]);
             }
 
-            Console.WriteLine(table.Columns.Count);
+            //Console.WriteLine(table.Columns.Count);
 
-            foreach (var line in lines)
+            for (int j = 0; j<numberOfRows; j++)
             {
-                string[] row = line.Split(',');
+                string[] row = lines[j].Split(',');
                 object[] cells = new object[row.Length];
                 for ( int i = 0; i<row.Length; i++)
                 {
@@ -71,11 +79,17 @@ namespace KNNBackgroundCalculations
                         cells[i] = row[i];
                     }
                 }
-                Console.WriteLine(cells.Length);
-                table.Rows.Add(cells);
+                //Console.WriteLine(cells.Length);
+                MyDataTable.Rows.Add(cells);
+                if (j % 2 == 0)
+                {
+                    TrainingSet.Rows.Add(cells);
+                } else
+                {
+                    TestingSet.Rows.Add(cells);
+                }
 
             }
-            return table;
         }
     }
 

@@ -47,8 +47,8 @@ namespace KNNWpfGUI
             string path = @"C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\datasets\IRIS.csv";
             KNNBackgroundCalculations.DataSet r = new KNNBackgroundCalculations.DataSet(path, 4);
             this.DataContext = this;
-            irisTrainDataBinding.ItemsSource = r.TrainingDataset;
-            irisTestDataBinding.ItemsSource = r.TestingDataset;
+            irisTrainDataBinding.ItemsSource = r.TrainingTable.DefaultView;
+            irisTestDataBinding.ItemsSource = r.TestingTable.DefaultView;
             ScrappyKNN knn = new ScrappyKNN(r);
             AccuracyLabel.Content = "Accuracy: " + Math.Round(knn.MyAccuracy, 2).ToString() + "%";
         }
