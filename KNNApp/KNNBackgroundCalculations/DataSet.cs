@@ -19,7 +19,7 @@ namespace KNNBackgroundCalculations
         public DataTable MyDataTable { get; private set; }
         public DataTable TrainingTable { get; private set; }
         public DataTable TestingTable { get; private set; }
-        private int classPosition;
+        public int classPosition;
         private string filePath;
         public string[] ColumnNames { get; set; }
 

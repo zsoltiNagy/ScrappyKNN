@@ -11,7 +11,9 @@ namespace KNNBackgroundCalculations
     {
         protected abstract List<string> Predictions { get; set; }
         abstract protected void Predict();
-        abstract protected string Closest(double[] row);        
+        abstract protected double Accuracy();
+        public abstract double MyAccuracy { get; }
+        //abstract protected string Closest(double[] row);        
     }
 
     /// <summary>
@@ -22,7 +24,7 @@ namespace KNNBackgroundCalculations
 
         private DataSet Dataset { get; }
         protected override List<string> Predictions { get; set; }
-        public double MyAccuracy;
+        public override double MyAccuracy { get; }
 
         public ScrappyKNN(DataSet dataset)
         {
@@ -51,7 +53,7 @@ namespace KNNBackgroundCalculations
         /// </summary>
         /// <param name="testFlower">A row of test data.</param>
         /// <returns>String representing the predicted class.</returns>
-        protected override string Closest(double[] testFlower)
+        protected string Closest(double[] testFlower)
         {
             double[] baseTrainFlower = Dataset.TrainingDataset[0].Features;
 
@@ -102,7 +104,7 @@ namespace KNNBackgroundCalculations
         /// Compares the predicted classes with the actual ones.
         /// </summary>
         /// <returns>Give back a double, that is representing the accuracy percent of the current run.</returns>
-        public double Accuracy()
+        protected override double Accuracy()
         {
             List<string> actual = new List<string>();
             foreach (var flower in Dataset.TestingDataset)
