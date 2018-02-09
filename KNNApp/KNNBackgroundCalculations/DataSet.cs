@@ -21,9 +21,11 @@ namespace KNNBackgroundCalculations
         public DataTable TestingTable { get; private set; }
         private int classPosition;
         private string filePath;
+        public string[] ColumnNames { get; set; }
 
-        public DataSet(string filePath, int classPosition)
+        public DataSet(string filePath, int classPosition, string[] columnNames)
         {
+            ColumnNames = columnNames;
             this.classPosition = classPosition;
             MyDataSet = new List<Row>();
             this.filePath = filePath;
@@ -87,7 +89,7 @@ namespace KNNBackgroundCalculations
                 StringSplitOptions.RemoveEmptyEntries);
 
 
-            DataTableCreator creator = new DataTableCreator(filePath);
+            DataTableCreator creator = new DataTableCreator(filePath, ColumnNames);
             MyDataTable = creator.MyDataTable;
             TrainingTable = creator.TrainingSet;
             TestingTable = creator.TestingSet;

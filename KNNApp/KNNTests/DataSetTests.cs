@@ -14,7 +14,8 @@ namespace KNNTests
             // Arrange
             string path = @"C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\datasets\IRIS.csv";
             // Act
-            reader = new DataSet(path, 4);
+            string[] columnNames = new string[] { "Sepal Length", "Sepal Width", "Petal Length", "Petal Width", "Species" };
+            reader = new DataSet(path, 4, columnNames);
         }
 
 

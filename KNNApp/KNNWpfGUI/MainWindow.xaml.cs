@@ -45,7 +45,8 @@ namespace KNNWpfGUI
         private void LoadDataSet()
         {
             string path = @"C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\datasets\IRIS.csv";
-            KNNBackgroundCalculations.DataSet r = new KNNBackgroundCalculations.DataSet(path, 4);
+            string[] columnNames = new string[] { "Sepal Length", "Sepal Width", "Petal Length", "Petal Width", "Species" };
+            KNNBackgroundCalculations.DataSet r = new KNNBackgroundCalculations.DataSet(path, 4, columnNames);
             this.DataContext = this;
             irisTrainDataBinding.ItemsSource = r.TrainingTable.DefaultView;
             irisTestDataBinding.ItemsSource = r.TestingTable.DefaultView;

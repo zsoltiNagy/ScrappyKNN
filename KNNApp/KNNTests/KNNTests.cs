@@ -12,7 +12,8 @@ namespace KNNTests
         {
             // Arrange
             string path = @"C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\datasets\IRIS.csv";
-            DataSet dataset = new DataSet(path, 4);
+            string[] columnNames = new string[] { "Sepal Length", "Sepal Width", "Petal Length", "Petal Width", "Species" };
+            DataSet dataset = new DataSet(path, 4, columnNames);
 
             // Act
             ScrappyKNN knn = new ScrappyKNN(dataset);
@@ -26,7 +27,8 @@ namespace KNNTests
         {
             // Arrange
             string path = @"C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\datasets\IRIS.csv";
-            DataSet dataset = new DataSet(path, 4);
+            string[] columnNames = new string[] { "Sepal Length", "Sepal Width", "Petal Length", "Petal Width", "Species" };
+            DataSet dataset = new DataSet(path, 4, columnNames);
             ScrappyKNN knn = new ScrappyKNN(dataset);
 
             // Act
@@ -41,7 +43,8 @@ namespace KNNTests
         {
             // Arrange
             string path = @"C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\datasets\IRIS.csv";
-            DataSet dataset = new DataSet(path, 4);
+            string[] columnNames = new string[] { "Sepal Length", "Sepal Width", "Petal Length", "Petal Width", "Species" };
+            DataSet dataset = new DataSet(path, 4, columnNames);
             ScrappyKNN knn = new ScrappyKNN(dataset);
 
             // Act

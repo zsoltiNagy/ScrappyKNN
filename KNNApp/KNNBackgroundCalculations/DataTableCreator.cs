@@ -14,9 +14,11 @@ namespace KNNBackgroundCalculations
         public DataTable MyDataTable { get; private set; }
         public DataTable TestingSet { get; private set; }
         public DataTable TrainingSet {get; private set;}
+        public string[] ColumnNames { get; set; }
 
-        public DataTableCreator(string filePath)//string[] lines)
+        public DataTableCreator(string filePath, string[] columnNames)//string[] lines)
         {
+            ColumnNames = columnNames;
             // Get the file's text.
             string rawData = File.ReadAllText(filePath);
             rawData = rawData.Replace('\n', '\r');
@@ -58,9 +60,9 @@ namespace KNNBackgroundCalculations
 
             for (int i = 0; i< lineLength; i++)
             {
-                MyDataTable.Columns.Add(i.ToString(), types[i]);
-                TrainingSet.Columns.Add(i.ToString(), types[i]);
-                TestingSet.Columns.Add(i.ToString(), types[i]);
+                MyDataTable.Columns.Add(ColumnNames[i], types[i]);
+                TrainingSet.Columns.Add(ColumnNames[i], types[i]);
+                TestingSet.Columns.Add(ColumnNames[i], types[i]);
             }
 
             //Console.WriteLine(table.Columns.Count);
