@@ -1,6 +1,8 @@
 ﻿using KNNBackgroundCalculations;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,14 +24,16 @@ namespace KNNWpfGUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string Hello {get; set;}
+        public string Hello { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
-            
-            Button btn = new Button();
-            btn.Name = "GetAccuracyButton";
+
+            Button btn = new Button
+            {
+                Name = "GetAccuracyButton"
+            };
             btn.Click += GetAccuracyButton_Click;
         }
 
@@ -41,7 +45,7 @@ namespace KNNWpfGUI
         private void LoadDataSet()
         {
             string path = @"C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\datasets\IRIS.csv";
-            DataSet r = new DataSet(path);
+            KNNBackgroundCalculations.DataSet r = new KNNBackgroundCalculations.DataSet(path, 4);
             this.DataContext = this;
             irisTrainDataBinding.ItemsSource = r.TrainingDataset;
             irisTestDataBinding.ItemsSource = r.TestingDataset;

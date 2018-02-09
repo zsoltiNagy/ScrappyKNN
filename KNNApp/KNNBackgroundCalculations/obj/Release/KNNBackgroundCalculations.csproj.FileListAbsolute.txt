@@ -1,0 +1,2 @@
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNBackgroundCalculations\obj\Release\KNNBackgroundCalculations.g.resources
+C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\KNNApp\KNNBackgroundCalculations\obj\Release\KNNBackgroundCalculations.csproj.CoreCompileInputs.cache

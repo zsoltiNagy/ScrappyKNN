@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataSet.cs" />
+    <Compile Include="DataTableCreator.cs" />
     <Compile Include="Flower.cs" />
     <Compile Include="KNN.cs" />
     <Compile Include="Program.cs" />

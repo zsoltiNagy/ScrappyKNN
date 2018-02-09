@@ -9,6 +9,7 @@ namespace KNNBackgroundCalculations
         public string Class { get; private set; }
         public double[] Features { get; private set; }
         public Dictionary<int, object> Data { get; private set; }
+
         public Row(string[] line, int classPosition)
         {
             Dictionary<int, object> Data = new Dictionary<int, object>();
@@ -32,6 +33,12 @@ namespace KNNBackgroundCalculations
             {
                 Features[i] = Double.Parse(lineList[i]);
             }
+        }
+
+        public override string ToString()
+        {
+
+            return "AAA";
         }
     }
 }

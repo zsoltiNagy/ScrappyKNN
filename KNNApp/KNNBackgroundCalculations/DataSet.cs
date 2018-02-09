@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
+
 
 namespace KNNBackgroundCalculations
 {
@@ -14,6 +16,7 @@ namespace KNNBackgroundCalculations
         public List<Row> MyDataSet { get; private set; }
         public List<Row> TrainingDataset { get; private set; }
         public List<Row> TestingDataset { get; private set; }
+        public DataTable MyDataTable { get; private set; }
         private int classPosition;
         private string filePath;
 
@@ -80,6 +83,10 @@ namespace KNNBackgroundCalculations
             rawData = rawData.Replace('\t', ',');
             string[] lines = rawData.Split(new char[] { '\r' },
                 StringSplitOptions.RemoveEmptyEntries);
+
+
+            //DataTableCreator creator = new DataTableCreator(lines);
+            //MyDataTable = creator.MyDataTable;
 
             // Load the dataset.
             for (int r = 1; r < lines.Length+1; r++)
