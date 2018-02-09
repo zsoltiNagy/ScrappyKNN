@@ -44,13 +44,18 @@ namespace KNNWpfGUI
 
         private void LoadDataSet()
         {
-            string path = @"C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\datasets\IRIS.csv";
-            string[] columnNames = new string[] { "Sepal Length", "Sepal Width", "Petal Length", "Petal Width", "Species" };
-            KNNBackgroundCalculations.DataSet r = new KNNBackgroundCalculations.DataSet(path, 4, columnNames);
+            //string path = @"C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\datasets\IRIS.csv"; //4
+            //string[] columnNames = new string[] { "Sepal Length", "Sepal Width", "Petal Length", "Petal Width", "Species" };
+
+            string[] columnNames = new string[] {"Area", "Perimeter", "Compactness", "Length of kernel",
+            "Width of Kernel", "Asymmetry coefficient", "Length of Kernel groove", "1:Kama,2:Rosa,3:Canadian"};
+            string path = @"C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\datasets\Seeds\SEEDS.csv"; //7
+
+            KNNBackgroundCalculations.DataSet r = new KNNBackgroundCalculations.DataSet(path, 7, columnNames);
             this.DataContext = this;
             irisTrainDataBinding.ItemsSource = r.TrainingTable.DefaultView;
             irisTestDataBinding.ItemsSource = r.TestingTable.DefaultView;
-            ScrappyKNN knn = new ScrappyKNN(r);
+            FlexibleKNN knn = new FlexibleKNN(r);
             AccuracyLabel.Content = "Accuracy: " + Math.Round(knn.MyAccuracy, 2).ToString() + "%";
         }
 
