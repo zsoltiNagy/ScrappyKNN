@@ -1,25 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 
+
 namespace KNNBackgroundCalculations
 {
+    
     /// <summary>
     /// Takes a path to a .csv file as a parameter and makes a dataset from it, shuffles it and creates training data and testing data.
     /// </summary>
     public class DataSet
     {
-        public List<Flower> MyDataSet { get; private set; }
-        public List<Flower> TrainingDataset { get; private set; }
-        public List<Flower> TestingDataset { get; private set; }
+        public List<Row> MyDataSet { get; private set; }
+        public List<Row> TrainingDataset { get; private set; }
+        public List<Row> TestingDataset { get; private set; }
+        public DataTable MyDataTable { get; private set; }
+        public DataTable TrainingTable { get; private set; }
+        public DataTable TestingTable { get; private set; }
+        public int classPosition;
         private string filePath;
+        public string[] ColumnNames { get; set; }
 
-        public DataSet(string filePath)
+        public DataSet(string filePath, int classPosition, string[] columnNames)
         {
-            // There should be a method to validate the path
-            // There should be a method to validate the file for DataSet transformation
-            MyDataSet = new List<Flower>();
+            ColumnNames = columnNames;
+            this.classPosition = classPosition;
+            MyDataSet = new List<Row>();
             this.filePath = filePath;
             Read();
             CreateTrainingAndTestingData();
@@ -47,8 +55,8 @@ namespace KNNBackgroundCalculations
         /// </summary>
         private void CreateTrainingAndTestingData()
         {
-            TrainingDataset = new List<Flower>();
-            TestingDataset = new List<Flower>();
+            TrainingDataset = new List<Row>();
+            TestingDataset = new List<Row>();
             // Shuffling the DataSet for more heterogenous training and testing data
             Shuffle(MyDataSet);
             // Splitting the shuffled DataSet by odd and even numbers to add more flavour
@@ -65,7 +73,7 @@ namespace KNNBackgroundCalculations
                 }
             }
         }
-        
+
         /// <summary>
         /// Creates MyDataSet from the file targeted by the filePath.
         /// </summary>
@@ -76,15 +84,23 @@ namespace KNNBackgroundCalculations
 
             // Split into lines.
             rawData = rawData.Replace('\n', '\r');
+            rawData = rawData.Replace('\t', ',');
             string[] lines = rawData.Split(new char[] { '\r' },
                 StringSplitOptions.RemoveEmptyEntries);
+
+
+            DataTableCreator creator = new DataTableCreator(filePath, ColumnNames);
+            MyDataTable = creator.MyDataTable;
+            TrainingTable = creator.TrainingSet;
+            TestingTable = creator.TestingSet;
 
             // Load the dataset.
             for (int r = 1; r < lines.Length+1; r++)
             {
                 string[] line = lines[r-1].Split(',');
-                Flower flower = new Flower(line);
-                MyDataSet.Add(flower);
+                Row row = new Row(line, classPosition);
+                //Flower flower = new Flower(line);
+                MyDataSet.Add(row);
             }
         }
     }

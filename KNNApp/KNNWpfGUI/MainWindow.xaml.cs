@@ -1,6 +1,8 @@
 ﻿using KNNBackgroundCalculations;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,14 +24,16 @@ namespace KNNWpfGUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string Hello {get; set;}
+        public string Hello { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
-            
-            Button btn = new Button();
-            btn.Name = "GetAccuracyButton";
+
+            Button btn = new Button
+            {
+                Name = "GetAccuracyButton"
+            };
             btn.Click += GetAccuracyButton_Click;
         }
 
@@ -40,12 +44,18 @@ namespace KNNWpfGUI
 
         private void LoadDataSet()
         {
-            string path = @"C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\datasets\IRIS.csv";
-            DataSet r = new DataSet(path);
+            string path = @"C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\datasets\IRIS.csv"; //4
+            string[] columnNames = new string[] { "Sepal Length", "Sepal Width", "Petal Length", "Petal Width", "Species" };
+
+            //string[] columnNames = new string[] {"Area", "Perimeter", "Compactness", "Length of kernel",
+            //"Width of Kernel", "Asymmetry coefficient", "Length of Kernel groove", "1:Kama,2:Rosa,3:Canadian"};
+            //string path = @"C:\Users\Zsolt Nagy\source\repos\Desktop app for KNN Visualization\datasets\Seeds\SEEDS.csv"; //7
+
+            KNNBackgroundCalculations.DataSet r = new KNNBackgroundCalculations.DataSet(path, 4, columnNames);
             this.DataContext = this;
-            irisTrainDataBinding.ItemsSource = r.TrainingDataset;
-            irisTestDataBinding.ItemsSource = r.TestingDataset;
-            ScrappyKNN knn = new ScrappyKNN(r);
+            irisTrainDataBinding.ItemsSource = r.TrainingTable.DefaultView;
+            irisTestDataBinding.ItemsSource = r.TestingTable.DefaultView;
+            FlexibleKNN knn = new FlexibleKNN(r);
             AccuracyLabel.Content = "Accuracy: " + Math.Round(knn.MyAccuracy, 2).ToString() + "%";
         }
 

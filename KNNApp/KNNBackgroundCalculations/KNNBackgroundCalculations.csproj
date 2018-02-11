@@ -43,16 +43,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataSet.cs" />
+    <Compile Include="DataTableCreator.cs" />
+    <Compile Include="FlexibleKNN.cs" />
     <Compile Include="Flower.cs" />
     <Compile Include="KNN.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Row.cs" />
+    <Compile Include="Validator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="adult.csv" />
     <None Include="App.config" />
     <None Include="Hepatitis.csv" />
-    <None Include="IRIS.csv" />
+    <Resource Include="IRIS.csv" />
     <None Include="SEEDS.csv" />
     <None Include="Wine.csv" />
   </ItemGroup>
